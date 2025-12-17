@@ -1,0 +1,45 @@
+function doPost(e) {
+  const sheet = SpreadsheetApp.getActiveSpreadsheet()
+    .getSheetByName("Sheet1");
+
+  const data = JSON.parse(e.postData.contents);
+
+  sheet.appendRow([
+    data.block_id,
+    data.student_id,
+    data.nama_mahasiswa,
+    data.mata_kuliah,
+    data.nilai,
+    data.semester,
+    data.tanggal,
+    data.dosen_pengampu,
+    data.prev_hash,
+    data.current_hash
+  ]);
+
+  return ContentService.createTextOutput("OK");
+}
+
+function doGet() {
+  const sheet = SpreadsheetApp.getActiveSpreadsheet()
+    .getSheetByName("Sheet1");
+
+  const rows = sheet.getDataRange().getValues();
+  rows.shift(); // remove header
+
+  const result = rows.map(r => ({
+    block_id: r[0],
+    student_id: r[1],
+    nama_mahasiswa: r[2],
+    mata_kuliah: r[3],
+    nilai: r[4],
+    semester: r[5],
+    tanggal: r[6],
+    dosen_pengampu: r[7],
+    prev_hash: r[8],
+    current_hash: r[9]
+  }));
+
+  return ContentService.createTextOutput(JSON.stringify(result))
+    .setMimeType(ContentService.MimeType.JSON);
+}
