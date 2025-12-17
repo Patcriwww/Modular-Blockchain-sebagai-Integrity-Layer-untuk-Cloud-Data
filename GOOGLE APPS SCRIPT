@@ -1,3 +1,5 @@
+#COPAS INI KE EXTENTIONS SPREADSHEET
+
 function doPost(e) {
   const sheet = SpreadsheetApp.getActiveSpreadsheet()
     .getSheetByName("Sheet1");
@@ -43,3 +45,4 @@ function doGet() {
   return ContentService.createTextOutput(JSON.stringify(result))
     .setMimeType(ContentService.MimeType.JSON);
 }
+
