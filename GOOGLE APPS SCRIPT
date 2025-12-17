@@ -1,4 +1,6 @@
 #COPAS INI KE EXTENTIONS SPREADSHEET
+#NOTE: block_id, student_id, nama_mahasiswa, mata_kuliah, nilai, semester, tanggal, dosen_pengampu, prev_hash, current_hash taro di bagian header halaman spread sheet terlebih dahulu
+
 
 function doPost(e) {
   const sheet = SpreadsheetApp.getActiveSpreadsheet()
@@ -45,4 +47,5 @@ function doGet() {
   return ContentService.createTextOutput(JSON.stringify(result))
     .setMimeType(ContentService.MimeType.JSON);
 }
+
 
