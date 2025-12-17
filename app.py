@@ -5,7 +5,10 @@ from datetime import datetime
 app = Flask(__name__)
 blockchain = []
 
-GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzDh2aXpjoysxSd0MbqNUAUmRwGJE5ngG9RsAUxGZ-AgPghNsyMQLVDM6s98xVH54aK/exec"
+# =====================
+# TARO LINK APP SCRIPT DIBAWAH INI
+# =====================
+GOOGLE_SCRIPT_URL = "LINK_APPS_SCRIPT_SPREADSHEET"
 
 # =====================
 # HASH
@@ -126,3 +129,4 @@ def detect_cloud():
 # =====================
 if __name__ == "__main__":
     app.run(debug=True)
+
