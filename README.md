@@ -1,29 +1,27 @@
-# Blockchain Akademik
+## Blockchain Akademik
 
-Project **Blockchain Akademik** merupakan implementasi sistem blockchain sederhana yang dirancang untuk mensimulasikan pencatatan data akademik secara terdistribusi, aman, dan tidak dapat dimanipulasi. Sistem ini bertujuan untuk menunjukkan bagaimana teknologi blockchain dapat digunakan dalam dunia pendidikan, seperti penyimpanan nilai, sertifikat, atau riwayat akademik mahasiswa secara transparan dan immutable.
+Project Blockchain Akademik merupakan implementasi sistem blockchain sederhana yang dirancang untuk mensimulasikan pencatatan data akademik secara terdistribusi, aman, dan tidak dapat dimanipulasi. Sistem ini bertujuan untuk menunjukkan bagaimana teknologi blockchain dapat digunakan dalam dunia pendidikan, seperti penyimpanan nilai, sertifikat, atau riwayat akademik mahasiswa secara transparan dan immutable.
 
-Project ini dibuat sebagai bagian dari tugas mata kuliah yang berkaitan dengan **Blockchain / Keamanan Data / Sistem Terdistribusi**.
+Project ini dibuat sebagai bagian dari tugas mata kuliah yang berkaitan dengan Blockchain / Keamanan Data / Sistem Terdistribusi.
 
 ---
 
 ## Latar Belakang
 
-Sistem akademik konvensional masih bergantung pada database terpusat yang rentan terhadap:
-- Manipulasi data
-- Single point of failure
-- Kurangnya transparansi
-
-Dengan menggunakan konsep blockchain:
-- Setiap data disimpan dalam blok
-- Setiap blok saling terhubung melalui hash
-- Perubahan data dapat terdeteksi
-- Integritas data terjamin
+**Sistem akademik konvensional masih bergantung pada database terpusat yang rentan terhadap:**
+- Manipulasi data.
+- Single point of failure.
+- Kurangnya transparansi.
+**Dengan menggunakan konsep blockchain:**
+- Setiap data disimpan dalam blok.
+- Setiap blok saling terhubung melalui hash.
+- Perubahan data dapat terdeteksi.
+- Integritas data terjamin.
 
 ---
 
 ## Fitur Utama
-
-### 1. Pembuatan Blok (Block Creation)
+**1. Pembuatan Blok (Block Creation)**
 Setiap data akademik disimpan dalam bentuk blok yang berisi:
 - Index
 - Timestamp
@@ -31,42 +29,41 @@ Setiap data akademik disimpan dalam bentuk blok yang berisi:
 - Hash
 - Previous Hash
 
-### 2. Validasi Blockchain
+**2. Validasi Blockchain**
 Sistem dapat memverifikasi apakah rantai blockchain masih valid dan tidak dimodifikasi.
 
-### 3. Immutability
+**3. Immutability**
 Data yang sudah masuk ke dalam blok tidak dapat diubah tanpa merusak seluruh rantai.
 
-### 4. Simulasi Transaksi Akademik
+**4. Simulasi Transaksi Akademik**
 Contoh data:
-- Input nilai mahasiswa
-- Riwayat mata kuliah
-- Sertifikat kelulusan
+- Input nilai mahasiswa.
+- Riwayat mata kuliah.
+- Sertifikat kelulusan.
 
 ---
 
 ## Arsitektur Sistem
 
-```text
 User Input
-   ↓
+↓
 Transaction (Data Akademik)
-   ↓
+↓
 Block Creation
-   ↓
+↓
 Hashing (SHA-256)
-   ↓
+↓
 Blockchain Ledger
-   ↓
+↓
 Validation & Verification
 
 ---
 
 ## Teknologi yang Digunakan
-- Python 3.x
-- Hashing Algorithm (SHA-256)
-- Object-Oriented Programming
-- JSON / File Storage
+- Python 3.x.
+- Hashing Algorithm (SHA-256).
+- Object-Oriented Programming.
+- JSON / File Storage.
 
 ---
 
@@ -80,7 +77,7 @@ blockchain-akademik/
 ├── transaction.py
 ├── utils.py
 ├── data/
-│   └── chain.json
+│ └── chain.json
 │
 ├── requirements.txt
 └── README.md
@@ -88,33 +85,35 @@ blockchain-akademik/
 ---
 
 ## Cara Menjalankan
-- Clone Repository
-  **git clone https://github.com/username/blockchain-akademik.git
-  cd blockchain-akademik**
-- Install Dependency
-  **pip install -r requirements.txt**
-- Jalankan Program
-  **python main.py**
+**1. Clone Repository**
+git clone https://github.com/username/blockchain-akademik.git
+cd blockchain-akademik
+
+**2. Install Dependency**
+pip install -r requirements.txt
+
+**3. Jalankan Program**
+python main.py
 
 ---
 
 ## Contoh Alur Kerja
-- User memasukkan data akademik (NIM, Nama, Mata Kuliah, Nilai).
-- Data diproses menjadi transaksi.
-- Sistem membuat blok baru.
-- Hash blok dihitung.
-- Blok ditambahkan ke blockchain.
-- Sistem memverifikasi integritas rantai.  
+1. User memasukkan data akademik (NIM, Nama, Mata Kuliah, Nilai).
+2.Data diproses menjadi transaksi.
+3. Sistem membuat blok baru.
+4. Hash blok dihitung.
+5. Blok ditambahkan ke blockchain.
+6. Sistem memverifikasi integritas rantai.
 
 ---
 
 ## Tujuan Pembelajaran
-**Project ini bertujuan untuk memahami:**
-- Konsep dasar Blockchain.
-- Struktur Block & Hash.
-- Mekanisme Linking antar Block.
-- Validasi Integritas Data.
-- Penerapan Blockchain di Sistem Akademik. 
+Project ini bertujuan untuk memahami:
+- Konsep dasar Blockchain
+- Struktur Block & Hash
+- Mekanisme Linking antar Block
+- Validasi Integritas Data
+- Penerapan Blockchain di Sistem Akademik
 
 ---
 
@@ -127,6 +126,3 @@ Tahun: 2026
 
 ## Lisensi
 Project ini dibuat untuk keperluan akademik dan pembelajaran. Bebas digunakan sebagai referensi dengan mencantumkan sumber.
-
-
- 
