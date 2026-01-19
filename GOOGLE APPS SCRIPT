@@ -1,51 +1,119 @@
-#COPAS INI KE EXTENTIONS SPREADSHEET
-#NOTE: block_id, student_id, nama_mahasiswa, mata_kuliah, nilai, semester, tanggal, dosen_pengampu, prev_hash, current_hash taro di bagian header halaman spread sheet terlebih dahulu
-
+// =====================================================
+// GOOGLE APPS SCRIPT - BLOCKCHAIN MAHASISWA
+// =====================================================
+// Copy paste kode ini ke Google Apps Script Editor
+// =====================================================
 
 function doPost(e) {
-  const sheet = SpreadsheetApp.getActiveSpreadsheet()
-    .getSheetByName("Sheet1");
+  try {
+    const sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
 
-  const data = JSON.parse(e.postData.contents);
+    if (!e || !e.postData || !e.postData.contents) {
+      return ContentService.createTextOutput(JSON.stringify({
+        status: "error",
+        message: "No data received"
+      })).setMimeType(ContentService.MimeType.JSON);
+    }
 
-  sheet.appendRow([
-    data.block_id,
-    data.student_id,
-    data.nama_mahasiswa,
-    data.mata_kuliah,
-    data.nilai,
-    data.semester,
-    data.tanggal,
-    data.dosen_pengampu,
-    data.prev_hash,
-    data.current_hash
-  ]);
+    const data = JSON.parse(e.postData.contents);
 
-  return ContentService.createTextOutput("OK");
+    const allData = sheet.getDataRange().getValues();
+
+    if (allData.length === 0 || allData[0].length === 0 || allData[0][0] === "") {
+      sheet.appendRow([
+        "block_id",
+        "student_id",
+        "nama_mahasiswa",
+        "mata_kuliah_id",
+        "mata_kuliah",
+        "jenis_mata_kuliah",
+        "nilai",
+        "semester",
+        "tanggal",
+        "dosen_id",
+        "dosen_pengampu",
+        "current_hash"
+      ]);
+    }
+
+    const currentData = sheet.getDataRange().getValues();
+
+    if (currentData.length > 1) {
+      for (let i = 1; i < currentData.length; i++) {
+        const row = currentData[i];
+        const existingStudentId = row[1];
+        const existingMataKuliahId = row[3];
+        const existingJenisMataKuliah = row[5];
+        const existingSemester = row[7];
+
+        if (existingStudentId == data.student_id &&
+            existingMataKuliahId == data.mata_kuliah_id &&
+            existingJenisMataKuliah == data.jenis_mata_kuliah &&
+            existingSemester == data.semester) {
+          return ContentService.createTextOutput(JSON.stringify({
+            status: "duplicate",
+            message: "Data already exists in Google Sheets"
+          })).setMimeType(ContentService.MimeType.JSON);
+        }
+      }
+    }
+
+    sheet.appendRow([
+      data.block_id,
+      data.student_id,
+      data.nama_mahasiswa,
+      data.mata_kuliah_id,
+      data.mata_kuliah,
+      data.jenis_mata_kuliah,
+      data.nilai,
+      data.semester,
+      data.tanggal,
+      data.dosen_id,
+      data.dosen_pengampu,
+      data.current_hash
+    ]);
+
+    return ContentService.createTextOutput(JSON.stringify({
+      status: "success",
+      message: "Data saved to Google Sheets"
+    })).setMimeType(ContentService.MimeType.JSON);
+
+  } catch (error) {
+    return ContentService.createTextOutput(JSON.stringify({
+      status: "error",
+      message: error.toString()
+    })).setMimeType(ContentService.MimeType.JSON);
+  }
 }
 
-function doGet() {
-  const sheet = SpreadsheetApp.getActiveSpreadsheet()
-    .getSheetByName("Sheet1");
+function doGet(e) {
+  try {
+    const sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
+    const data = sheet.getDataRange().getValues();
 
-  const rows = sheet.getDataRange().getValues();
-  rows.shift(); // remove header
+    if (data.length === 0) {
+      return ContentService.createTextOutput(JSON.stringify([]))
+        .setMimeType(ContentService.MimeType.JSON);
+    }
 
-  const result = rows.map(r => ({
-    block_id: r[0],
-    student_id: r[1],
-    nama_mahasiswa: r[2],
-    mata_kuliah: r[3],
-    nilai: r[4],
-    semester: r[5],
-    tanggal: r[6],
-    dosen_pengampu: r[7],
-    prev_hash: r[8],
-    current_hash: r[9]
-  }));
+    const headers = data[0];
+    const rows = data.slice(1);
 
-  return ContentService.createTextOutput(JSON.stringify(result))
-    .setMimeType(ContentService.MimeType.JSON);
+    const result = rows.map(row => {
+      const obj = {};
+      headers.forEach((header, index) => {
+        obj[header] = row[index];
+      });
+      return obj;
+    });
+
+    return ContentService.createTextOutput(JSON.stringify(result))
+      .setMimeType(ContentService.MimeType.JSON);
+
+  } catch (error) {
+    return ContentService.createTextOutput(JSON.stringify({
+      status: "error",
+      message: error.toString()
+    })).setMimeType(ContentService.MimeType.JSON);
+  }
 }
-
-
