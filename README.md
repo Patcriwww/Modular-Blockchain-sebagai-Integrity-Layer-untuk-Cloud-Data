@@ -46,15 +46,15 @@ Contoh data:
 ## Arsitektur Sistem
 
 User Input
-↓
+-->
 Transaction (Data Akademik)
-↓
+-->
 Block Creation
-↓
+-->
 Hashing (SHA-256)
-↓
+-->
 Blockchain Ledger
-↓
+-->
 Validation & Verification
 
 ---
@@ -85,15 +85,11 @@ blockchain-akademik/
 ---
 
 ## Cara Menjalankan
-**1. Clone Repository**
-git clone https://github.com/username/blockchain-akademik.git
-cd blockchain-akademik
+**1. Clone Repository**: git clone https://github.com/username/blockchain-akademik.git cd blockchain-akademik
 
-**2. Install Dependency**
-pip install -r requirements.txt
+**2. Install Dependency**: pip install -r requirements.txt
 
-**3. Jalankan Program**
-python main.py
+**3. Jalankan Program**: python main.py
 
 ---
 
