@@ -1,148 +1,132 @@
-# Modular-Blockchain-sebagai-Integrity-Layer-untuk-Cloud-Data
-Repo untuk Modular Blockchain sebagai Integrity Layer  untuk Cloud Data
+# Blockchain Akademik
 
-🎓 Academic Credential Micro-Ledger
+Project **Blockchain Akademik** merupakan implementasi sistem blockchain sederhana yang dirancang untuk mensimulasikan pencatatan data akademik secara terdistribusi, aman, dan tidak dapat dimanipulasi. Sistem ini bertujuan untuk menunjukkan bagaimana teknologi blockchain dapat digunakan dalam dunia pendidikan, seperti penyimpanan nilai, sertifikat, atau riwayat akademik mahasiswa secara transparan dan immutable.
 
-Anti Pemalsuan Nilai & Sertifikat Akademik (Case 3)
+Project ini dibuat sebagai bagian dari tugas mata kuliah yang berkaitan dengan **Blockchain / Keamanan Data / Sistem Terdistribusi**.
 
-📌 Deskripsi Proyek
+---
 
-Academic Credential Micro-Ledger adalah sistem berbasis blockchain sederhana yang dirancang untuk mencegah pemalsuan nilai dan sertifikat akademik mahasiswa.
-Proyek ini mengintegrasikan Flask (backend) dengan Google Sheets (cloud storage) untuk mensimulasikan bagaimana manipulasi data di cloud dapat terdeteksi melalui mekanisme hash blockchain.
+## Latar Belakang
 
-Sistem memastikan bahwa data nilai yang telah tercatat di blockchain tidak dapat diubah secara sepihak, meskipun data di Google Sheets dimanipulasi secara manual.
+Sistem akademik konvensional masih bergantung pada database terpusat yang rentan terhadap:
+- Manipulasi data
+- Single point of failure
+- Kurangnya transparansi
 
-🎯 Tujuan Proyek
+Dengan menggunakan konsep blockchain:
+- Setiap data disimpan dalam blok
+- Setiap blok saling terhubung melalui hash
+- Perubahan data dapat terdeteksi
+- Integritas data terjamin
 
-Mencegah perubahan nilai mahasiswa tanpa otorisasi
+---
 
-Mendeteksi pemalsuan sertifikat akademik
+## Fitur Utama
 
-Menjaga integritas dan konsistensi data akademik
+### 1. Pembuatan Blok (Block Creation)
+Setiap data akademik disimpan dalam bentuk blok yang berisi:
+- Index
+- Timestamp
+- Data akademik
+- Hash
+- Previous Hash
 
-Mensimulasikan kasus manipulasi data pada cloud (Google Sheets)
+### 2. Validasi Blockchain
+Sistem dapat memverifikasi apakah rantai blockchain masih valid dan tidak dimodifikasi.
 
-🧩 Skenario Sistem
+### 3. Immutability
+Data yang sudah masuk ke dalam blok tidak dapat diubah tanpa merusak seluruh rantai.
 
-Dosen menginput nilai mahasiswa ke sistem
+### 4. Simulasi Transaksi Akademik
+Contoh data:
+- Input nilai mahasiswa
+- Riwayat mata kuliah
+- Sertifikat kelulusan
 
-Data disimpan ke dalam blockchain
+---
 
-Data blockchain dikirim dan ditampilkan di Google Sheets
+## Arsitektur Sistem
 
-Data di Google Sheets diubah secara manual (simulasi kecurangan)
+```text
+User Input
+   ↓
+Transaction (Data Akademik)
+   ↓
+Block Creation
+   ↓
+Hashing (SHA-256)
+   ↓
+Blockchain Ledger
+   ↓
+Validation & Verification
 
-Sistem tetap menampilkan data asli dari blockchain dan mendeteksi manipulasi
+---
 
-📦 Struktur Data Blockchain (Case 3)
-{
-  "block_id": 4,
-  "student_id": "MHS-2023-001",
-  "nama_mahasiswa": "Budi",
-  "mata_kuliah": "Kriptografi",
-  "nilai": "A",
-  "semester": 5,
-  "tanggal": "2025-12-08 13:00:00",
-  "dosen_pengampu": "Dr. Lina",
-  "prev_hash": "ff21ac8812...",
-  "current_hash": "99bce712aa..."
-}
+## Teknologi yang Digunakan
+- Python 3.x
+- Hashing Algorithm (SHA-256)
+- Object-Oriented Programming
+- JSON / File Storage
 
-⛓️ Jumlah Blok Wajib
+---
 
-Sistem wajib memiliki minimal 4 blok, yaitu:
+## Struktur Folder
 
-Blok	Fungsi
-Blok 1	Input Nilai UTS
-Blok 2	Input Nilai UAS
-Blok 3	Finalisasi Mata Kuliah
-Blok 4	Penerbitan Sertifikat
+blockchain-akademik/
+│
+├── main.py
+├── block.py
+├── blockchain.py
+├── transaction.py
+├── utils.py
+├── data/
+│   └── chain.json
+│
+├── requirements.txt
+└── README.md
 
-Empat blok ini diperlukan agar pemalsuan sertifikat dapat diuji dan diverifikasi.
+---
 
-🔗 Endpoint API
+## Cara Menjalankan
+- Clone Repository
+  **git clone https://github.com/username/blockchain-akademik.git
+  cd blockchain-akademik**
+- Install Dependency
+  **pip install -r requirements.txt**
+- Jalankan Program
+  **python main.py**
 
-Sistem menyediakan endpoint berikut:
+---
 
-Method	Endpoint	Fungsi
-POST	/add_data	Menambahkan data nilai ke blockchain
-GET	/get_chain	Menampilkan seluruh blockchain
-GET	/verify_chain	Verifikasi integritas blockchain
-GET	/detect_cloud_tampering	Mendeteksi manipulasi data di Google Sheets
-☁️ Integrasi Google Sheets
+## Contoh Alur Kerja
+- User memasukkan data akademik (NIM, Nama, Mata Kuliah, Nilai).
+- Data diproses menjadi transaksi.
+- Sistem membuat blok baru.
+- Hash blok dihitung.
+- Blok ditambahkan ke blockchain.
+- Sistem memverifikasi integritas rantai.  
 
-Alur pengiriman data:
+---
 
-Flask API → Google Apps Script → Google Sheets
+## Tujuan Pembelajaran
+**Project ini bertujuan untuk memahami:**
+- Konsep dasar Blockchain.
+- Struktur Block & Hash.
+- Mekanisme Linking antar Block.
+- Validasi Integritas Data.
+- Penerapan Blockchain di Sistem Akademik. 
+
+---
+
+## Author
+**Fachri Reyhan**
+Mahasiswa – Teknologi Informasi / Informatika
+Tahun: 2026
+
+---
+
+## Lisensi
+Project ini dibuat untuk keperluan akademik dan pembelajaran. Bebas digunakan sebagai referensi dengan mencantumkan sumber.
 
 
-Tujuan integrasi:
-
-Menampilkan data blockchain ke cloud
-
-Mensimulasikan manipulasi data
-
-Menguji integritas data antara blockchain dan cloud
-
-🧪 Pengujian Sistem (Postman)
-✅ Uji Normal
-
-Jalankan server Flask
-
-Kirim data menggunakan POST /add_data sebanyak 4 kali
-
-Cek blockchain menggunakan GET /get_chain
-
-Verifikasi integritas menggunakan GET /verify_chain
-
-Sistem menampilkan status DATA SAMA
-
-❌ Simulasi Kecurangan
-
-Ubah data langsung di Google Sheets
-(contoh: nama mahasiswa atau nilai)
-
-Jalankan GET /verify_chain atau GET /detect_cloud_tampering
-
-Sistem menampilkan status DATA TIDAK SAMA
-
-Sistem menunjukkan blok yang telah dimanipulasi
-
-📊 Hasil Pengujian
-
-Sebelum Tampering
-Blockchain dan Google Sheets konsisten → DATA SAMA
-
-Sesudah Tampering
-Data di Google Sheets diubah tanpa pembaruan hash → DATA TIDAK SAMA
-
-Sistem berhasil mendeteksi perubahan data akademik secara otomatis.
-
-🛠️ Teknologi yang Digunakan
-
-Python (Flask)
-
-Blockchain (SHA-256 Hash)
-
-Google Apps Script
-
-Google Sheets
-
-Postman (API Testing)
-
-👨‍🎓 Konteks Akademik
-
-Proyek ini dikembangkan sebagai implementasi Case 3 – Academic Credential Micro-Ledger untuk mata kuliah yang membahas:
-
-Blockchain fundamentals
-
-Data integrity
-
-Cloud tampering detection
-
-Sistem anti-pemalsuan data akademik
-
-📌 Catatan
-
-Google Sheets digunakan hanya sebagai simulasi cloud,
-sumber kebenaran utama (single source of truth) tetap berada di blockchain.
+ 
