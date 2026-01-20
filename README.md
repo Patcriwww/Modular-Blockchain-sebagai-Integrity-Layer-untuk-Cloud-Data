@@ -12,6 +12,7 @@ Project ini dibuat sebagai bagian dari tugas mata kuliah yang berkaitan dengan B
 - Manipulasi data.
 - Single point of failure.
 - Kurangnya transparansi.
+  
 **Dengan menggunakan konsep blockchain:**
 - Setiap data disimpan dalam blok.
 - Setiap blok saling terhubung melalui hash.
