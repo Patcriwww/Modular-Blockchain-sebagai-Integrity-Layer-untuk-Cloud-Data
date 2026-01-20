@@ -1,7 +1,6 @@
 ## Blockchain Akademik
 
 Project Blockchain Akademik merupakan implementasi sistem blockchain sederhana yang dirancang untuk mensimulasikan pencatatan data akademik secara terdistribusi, aman, dan tidak dapat dimanipulasi. Sistem ini bertujuan untuk menunjukkan bagaimana teknologi blockchain dapat digunakan dalam dunia pendidikan, seperti penyimpanan nilai, sertifikat, atau riwayat akademik mahasiswa secara transparan dan immutable.
-
 Project ini dibuat sebagai bagian dari tugas mata kuliah yang berkaitan dengan Blockchain / Keamanan Data / Sistem Terdistribusi.
 
 ---
