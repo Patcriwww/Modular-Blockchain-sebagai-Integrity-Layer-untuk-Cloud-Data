@@ -5,33 +5,37 @@ sederhana yang dirancang untuk mensimulasikan pencatatan data akademik
 secara terdistribusi, aman, dan tidak dapat dimanipulasi. Sistem ini
 bertujuan untuk menunjukkan bagaimana teknologi blockchain dapat
 digunakan dalam dunia pendidikan, seperti penyimpanan nilai, sertifikat,
-atau riwayat akademik mahasiswa secara transparan dan *immutable*.
+dan riwayat akademik mahasiswa secara transparan dan *immutable*.
 
 Project ini dibuat sebagai bagian dari tugas mata kuliah yang berkaitan
-dengan **Blockchain / Keamanan Data / Sistem Terdistribusi**.
+dengan **Blockchain, Keamanan Data, dan Sistem Terdistribusi**.
 
 ------------------------------------------------------------------------
 
 ## Latar Belakang
 
-**Sistem akademik konvensional masih bergantung pada database terpusat
-yang rentan terhadap:** - Manipulasi data\
-- *Single point of failure*\
-- Kurangnya transparansi
+Sistem akademik konvensional masih bergantung pada database terpusat
+yang memiliki beberapa kelemahan, antara lain:
 
-**Dengan menggunakan konsep blockchain:** - Setiap data disimpan dalam
-bentuk blok\
-- Setiap blok saling terhubung melalui *hash*\
-- Perubahan data dapat terdeteksi\
-- Integritas data lebih terjamin
+-   Rentan terhadap manipulasi data\
+-   Memiliki *single point of failure*\
+-   Kurangnya transparansi dan auditabilitas
+
+Dengan menggunakan konsep blockchain:
+
+-   Setiap data disimpan dalam bentuk blok\
+-   Setiap blok saling terhubung melalui hash\
+-   Perubahan data dapat terdeteksi\
+-   Integritas data lebih terjamin
 
 ------------------------------------------------------------------------
 
 ## Fitur Utama
 
-### 1. Pembuatan Blok (*Block Creation*)
+### 1. Pembuatan Blok (Block Creation)
 
-Setiap data akademik disimpan dalam bentuk blok yang berisi: - Index\
+Setiap data akademik disimpan dalam bentuk blok yang terdiri dari: -
+Index\
 - Timestamp\
 - Data akademik\
 - Hash\
@@ -44,12 +48,12 @@ tidak mengalami modifikasi.
 
 ### 3. Immutability
 
-Data yang sudah masuk ke dalam blok tidak dapat diubah tanpa merusak
-keseluruhan rantai blockchain.
+Data yang telah tersimpan dalam blockchain tidak dapat diubah tanpa
+mempengaruhi keseluruhan rantai.
 
 ### 4. Simulasi Transaksi Akademik
 
-Contoh data yang dapat disimulasikan: - Input nilai mahasiswa\
+Contoh data yang dapat disimulasikan: - Nilai mahasiswa\
 - Riwayat mata kuliah\
 - Sertifikat kelulusan
 
@@ -57,19 +61,24 @@ Contoh data yang dapat disimulasikan: - Input nilai mahasiswa\
 
 ## Arsitektur Sistem
 
-User Input\
-→ Transaction (Data Akademik)\
-→ Block Creation\
-→ Hashing (SHA-256)\
-→ Blockchain Ledger\
-→ Validation & Verification
+    User Input
+        ↓
+    Transaction (Data Akademik)
+        ↓
+    Block Creation
+        ↓
+    Hashing (SHA-256)
+        ↓
+    Blockchain Ledger
+        ↓
+    Validation & Verification
 
 ------------------------------------------------------------------------
 
 ## Teknologi yang Digunakan
 
 -   Python 3.x\
--   Hashing Algorithm (SHA-256)\
+-   SHA-256 Hashing Algorithm\
 -   Object-Oriented Programming (OOP)\
 -   JSON / File Storage
 
@@ -94,24 +103,24 @@ User Input\
 
 ## Cara Menjalankan
 
-### 1. Clone Repository
+1.  Clone repository:
 
-``` bash
-git clone https://github.com/username/blockchain-akademik.git
-cd blockchain-akademik
-```
+    ``` bash
+    git clone https://github.com/username/blockchain-akademik.git
+    cd blockchain-akademik
+    ```
 
-### 2. Install Dependency
+2.  Install dependency:
 
-``` bash
-pip install -r requirements.txt
-```
+    ``` bash
+    pip install -r requirements.txt
+    ```
 
-### 3. Jalankan Program
+3.  Jalankan program:
 
-``` bash
-python main.py
-```
+    ``` bash
+    python main.py
+    ```
 
 ------------------------------------------------------------------------
 
@@ -128,11 +137,13 @@ python main.py
 
 ## Tujuan Pembelajaran
 
-Project ini bertujuan untuk memahami: - Konsep dasar Blockchain\
-- Struktur Block & Hash\
-- Mekanisme *Linking* antar Block\
-- Validasi Integritas Data\
-- Penerapan Blockchain pada Sistem Akademik
+Project ini bertujuan untuk memahami:
+
+-   Konsep dasar Blockchain\
+-   Struktur Block dan Hash\
+-   Mekanisme penghubung antar Block\
+-   Validasi integritas data\
+-   Penerapan Blockchain pada sistem akademik
 
 ------------------------------------------------------------------------
 
